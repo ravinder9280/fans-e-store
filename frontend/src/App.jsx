@@ -36,7 +36,7 @@ const App = () => {
       
       
       <Footer/>
-      {!location.pathname.includes('cart')&&getCartTotal()>0?
+      {!location.pathname.includes('cart')&&!location.pathname.includes('order')&&getCartTotal()>0?
 
       <CartPanel/>:null
       }
