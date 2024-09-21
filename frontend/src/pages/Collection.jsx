@@ -50,7 +50,11 @@ const Collection = () => {
 
     
         
-
+    useEffect(() => {
+        
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+      }, []);
 
     
    //4:02=36

@@ -29,7 +29,7 @@ const ListItems = () => {
       <div className="flex flex-col  gap-2">
         {
           products.map((item,idx)=>(
-            <Product key={idx} image={item.image[0]} name={item.name} price={item.price} category={item.category} />
+            <Product key={idx} image={item.image[0]} id={item._id} name={item.name} price={item.price} category={item.category} />
           ))
 
         }

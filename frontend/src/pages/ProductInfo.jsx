@@ -7,7 +7,7 @@ import Title from '../components/Title'
 
 const ProductInfo = () => {
 
-    const {products,currency,cartItems,addToCart,addCart}=useContext(ShopContext)
+    const {products,currency,token,addToCart,Navigate}=useContext(ShopContext)
     const [currProduct,setCurrProduct]=useState(false)
     const {id}=useParams();
     const [images,setImages]=useState([])
@@ -74,7 +74,7 @@ const ProductInfo = () => {
                   ))}
 
                 </div>
-                <button onClick={()=>addToCart(currProduct._id,size)} className='bg-orange-500 rounded text-white mt-4 bordered w-32 p-3' >ADD TO CART</button>
+                <button onClick={()=>token?addToCart(currProduct._id,size):Navigate('/login')} className='bg-orange-500 rounded text-white mt-4 bordered w-32 p-3' >ADD TO CART</button>
 
               </div  >
               <div className='flex flex-col gap-1' >

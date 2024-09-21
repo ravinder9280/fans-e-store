@@ -1,7 +1,28 @@
-import React from 'react'
 import { AiOutlineDelete } from "react-icons/ai";
+import axios from 'axios'
+import { toast } from 'react-toastify'
+//https://xhamster.desi/videos/str8-turkish-sahin-hairy-daddy-bear-1-turkish-bear-xhGaFKV
 
-const product = ({image,name,price,category}) => {
+const product = ({image,name,price,category,id}) => {
+  const removeProduct=async(id)=>{
+    try {
+      let response=await axios.post('http://localhost:5000/api/product/remove',{productId:id})
+      if(response.data.success){
+        toast.success(response.data.message)
+        window.location.reload()
+        
+      }
+      else{
+        toast.error(response.data.message)
+      }
+      
+    } catch (error) {
+      toast.error('Failed to remove product')
+      console.log(error);
+      
+      
+    }
+  }
   return (
     <div className='flex justify-between items-center border py-2 pl-2  pr-8 ' >
         <div className='flex gap-4 sm:gap-8'>
@@ -15,7 +36,7 @@ const product = ({image,name,price,category}) => {
         
 
         </div>
-        <div className='flex items-center '>
+        <div onClick={()=>removeProduct(id)} className='flex items-center cursor-pointer '>
             <p className='text-xl sm:text-2xl '><AiOutlineDelete />
             </p>
         </div>

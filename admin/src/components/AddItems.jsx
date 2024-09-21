@@ -61,6 +61,13 @@ const onSubmitHandler=async(e)=>{
     let response=await axios.post('http://localhost:5000/api/product/add',formData)
     if(response.data.success){
     toast.success(response.data.message)
+    setData({name:"",description:"",price:100,category:"Men",subcategory:"Topwear",bestseller:false})
+    setSize(["M"])
+    setImage1(false)
+    setImage2(false)
+    setImage3(false)
+    setImage4(false)
+
   }
   else{
       toast.success(response.data.message)
@@ -189,7 +196,7 @@ const onSubmitHandler=async(e)=>{
     <div className='flex items-center gap-2 justify-start'>
 
     <button type='button' onClick={()=>manageSize("S")} className={`bg-orange-300 ${sizes.includes("S")?"border border-blue-500":""}  text-white px-4 py-2`}>S</button>
-    <button type='button' onClick={()=>manageSize("M")} className={`bg-orange-300 ${sizes.includes("M")?"border border-blue-500":""}  text-white px-4 py-2`} >M</button>
+    <button type='button' onClick={()=>manageSize("M")} className={`bg-orange-300 ${sizes.includes("M")?"border border-blue-500 bg":""}  text-white px-4 py-2`} >M</button>
     <button type='button' onClick={()=>manageSize("L")} className={`bg-orange-300 ${sizes.includes("L")?"border border-blue-500":""}  text-white px-4 py-2`} >L</button>
     <button type='button' onClick={()=>manageSize("XL")} className={`bg-orange-300 ${sizes.includes("XL")?"border border-blue-500":""}  text-white px-4 py-2`} >XL</button>
     
