@@ -35,7 +35,7 @@ const Cart = () => {
       {cartData.filter(item => item.quantity > 0).map((item, idx) => {
         const productData = products.find((product) => product._id === item._id);
         return (
-          <div key={idx} className='py-4 border-t border-b text-gray-700 grid grid-cols-[4fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4'>
+          <div key={idx} className='py-3 border-t border-b text-gray-700 flex items-center justify-between'>
             <div className='flex items-start gap-6'>
               <img src={productData.image[0]} className='w-16 sm:w-20' alt='' />
               <div>
@@ -51,12 +51,16 @@ const Cart = () => {
               </div>
         
             </div>
-            <div className='flex items-center justify-between gap-8'>
-              <input type='number'min={1} max={10} className='w-12 pl-1 border' onChange={(e)=>e.target.vale===''||e.target.value==='0'?null:updateCartCount(item._id,item.size,Number(e.target.value))}  value={item.quantity} />
+            <div className='flex items-center w-[70px] text-sm rounded-md  text-white justify-between p-2  bg-orange-500'>
+              {/* <input type='number'min={1} max={10} className='w-12 pl-1 border' onChange={(e)=>e.target.vale===''||e.target.value==='0'?null:updateCartCount(item._id,item.size,Number(e.target.value))}  value={item.quantity} />
               <div onClick={()=>updateCartCount(item._id,item.size,0)} className='text-xl  cursor-pointer'>
 
               <RiDeleteBinLine />
-              </div>
+              </div> */}
+              <p  onClick={()=>updateCartCount(item._id,item.size,item.quantity-1)} className='font-bold cursor-pointer ' >-</p>
+              <p className='font-bold' >{item.quantity}</p>
+
+              <p onClick={()=>updateCartCount(item._id,item.size,item.quantity+1)} className='font-bold cursor-pointer' >+</p>
               </div>
            
 

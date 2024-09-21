@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../assets/assets";
 import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios'
@@ -18,6 +17,8 @@ const ShopContextProvider=(props)=>{
     const [cartItems,setCartItems]=useState({})
     const Navigate=useNavigate()
     const url='https://fans-e-store.onrender.com'
+    const [products,setProducts]=useState([])
+    
     const addToCart=async(itemId,size)=>{
         
         
@@ -91,10 +92,7 @@ getCartData()
         }
         loadData();
     },[])
-    useEffect(()=>{
-        console.log(cartItems);
-        
-    },[cartItems])
+
     useEffect(()=>{
         window.scrollTo({ top: 0, behavior: 'smooth' })
   
@@ -119,6 +117,27 @@ getCartData()
         }
         return total;
     }
+    const getProducts=async()=>{
+        try {
+            let response=await axios.get(url+"/api/product/list")
+            if(response.data.success){
+
+                setProducts(response.data.allProducts)
+            }
+            console.log(response);
+            
+            
+        } catch (error) {
+            console.log(error);
+            toast.error(error.message)
+            
+            
+        }
+    }
+    useEffect(()=>{
+        getProducts()
+
+    },[])
    
 
     const value={
