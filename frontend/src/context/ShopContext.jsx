@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { products } from "../assets/assets";
 import { toast } from 'react-toastify';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios'
 
 
@@ -95,6 +95,10 @@ getCartData()
         console.log(cartItems);
         
     },[cartItems])
+    useEffect(()=>{
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+  
+      },[useLocation()])
     const getCartTotal=()=>{
         let total=0;
         for(const items in cartItems){

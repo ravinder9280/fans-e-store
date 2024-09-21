@@ -74,7 +74,10 @@ const ProductInfo = () => {
                   ))}
 
                 </div>
-                <button onClick={()=>token?addToCart(currProduct._id,size):Navigate('/login')} className='bg-orange-500 rounded text-white mt-4 bordered w-32 p-3' >ADD TO CART</button>
+                <button onClick={()=>token?addToCart(currProduct._id,size):Navigate('/login')
+                
+                  
+                } className='bg-orange-500 rounded text-white mt-4 bordered w-32 p-3' >ADD TO CART</button>
 
               </div  >
               <div className='flex flex-col gap-1' >

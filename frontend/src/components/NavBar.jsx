@@ -87,12 +87,14 @@ const NavBar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-36 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-32 p-2 shadow">
         <li><a><IoPersonOutline/>Profile</a></li>
         <li><a> <BsBasket/>My Orders</a></li>
         <li onClick={()=>{localStorage.removeItem('token')
            setToken('')
-            Navigate('/login')}} ><a><TbLogout />Logout</a></li>
+            Navigate('/login')
+            
+            }} ><a><TbLogout />Logout</a></li>
       </ul>
       
       </>:

@@ -21,6 +21,10 @@ const Login = () => {
 
     }
     useEffect(()=>{
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    },[])
+    useEffect(()=>{
       console.log(token);
       
     },[token])
