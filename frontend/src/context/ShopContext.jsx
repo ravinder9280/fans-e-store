@@ -50,7 +50,7 @@ const ShopContextProvider=(props)=>{
     }
     useEffect(()=>{
 getCartData()
-    },[])
+    },[token])
     const getCartCount=()=>{
         let totalCount=0;
         for(const items in cartItems){

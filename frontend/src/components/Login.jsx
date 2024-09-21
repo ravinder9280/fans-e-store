@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 
 
 const Login = () => {
-    const {url,token,setToken,Navigate}=useContext(ShopContext)
+    const {url,token,setToken,Navigate,getCartData}=useContext(ShopContext)
     const[login,setLogin]=useState(true)
     const [formData,setFormData]=useState({
         email:'',
@@ -13,9 +13,9 @@ const Login = () => {
         name:''
     })
     const onChangeHandler=(e)=>{
-      let value=e.target.value
+      let value=e.target.value;
       let name=e.target.name;
-        setFormData((data)=>({...data,[name]:value}))
+        setFormData((data)=>({...data,[name]:value}));
         console.log(formData);
         
 
@@ -34,6 +34,7 @@ const Login = () => {
           setToken(response.data.token)
           localStorage.setItem('token',response.data.token)
           Navigate('/')
+          
 
         }
         else{

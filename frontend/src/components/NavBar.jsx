@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const [visible,setVisible]=useState(false);
-  const {showSearch,Navigate,setShowSearch,token,setToken,getCartCount}=useContext(ShopContext)
+  const {showSearch,Navigate,setShowSearch,token,setToken,getCartCount,getCartTotal}=useContext(ShopContext)
   
   
   return (
@@ -135,7 +135,7 @@ const NavBar = () => {
         className=" card  card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
         <div className="card-body">
           <span className="text-lg font-bold">{getCartCount()} Items</span>
-          <span className="text-info">Subtotal: $999</span>
+          <span className="text-info">Subtotal: {getCartTotal()}</span>
           <div className="card-actions">
            <button onClick={()=>Navigate('/cart')} className="btn bg-orange-500 text-white btn-block">View cart</button>
           </div>
