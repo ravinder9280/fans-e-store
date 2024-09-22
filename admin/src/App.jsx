@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 const App = () => {
+  const url="https://fans-e-store.onrender.com"
   return (
     <div className='flex flex-col h-'>
       <Navbar/>
@@ -17,8 +18,8 @@ const App = () => {
       <SlideBar/>
 
       <Routes>
-        <Route path='/' element={<AddItems/>}/>
-        <Route path='/list' element={<ListItems/>}/>
+        <Route path='/' element={<AddItems url={url} />}/>
+        <Route path='/list' element={<ListItems url={url} />}/>
         
       </Routes>
       </div>

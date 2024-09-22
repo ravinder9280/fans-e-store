@@ -2,12 +2,12 @@ import axios from "axios"
 import Product from "./product"
 import { toast } from "react-toastify"
 import { useEffect, useState } from "react"
-const ListItems = () => {
+const ListItems = ({url}) => {
 
   const [products,setProducts]=useState([])
   const fetchProducts=async()=>{
     try {
-      const response=await axios.get('http://localhost:5000/api/product/list');
+      const response=await axios.get(url+'/api/product/list');
       setProducts(response.data.allProducts)
       console.log(response);
       

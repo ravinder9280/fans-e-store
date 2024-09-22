@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-export const AddItems = () => {
+export const AddItems = ({url}) => {
+  
   const [sizes,setSize]=useState(["M"])
   const [image1,setImage1]=useState(false)
   const [image2,setImage2]=useState(false)
@@ -58,7 +59,7 @@ const onSubmitHandler=async(e)=>{
    image4 && formData.append('image4',image4)
     console.log(formData);
     
-    let response=await axios.post('http://localhost:5000/api/product/add',formData)
+    let response=await axios.post(url+'/api/product/add',formData)
     if(response.data.success){
     toast.success(response.data.message)
     setData({name:"",description:"",price:100,category:"Men",subcategory:"Topwear",bestseller:false})
