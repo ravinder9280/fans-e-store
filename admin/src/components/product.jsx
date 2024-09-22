@@ -8,7 +8,7 @@ const product = ({image,name,price,category,id,url}) => {
       let response=await axios.post(url+'/api/product/remove',{productId:id})
       if(response.data.success){
         toast.success(response.data.message)
-        window.location.reload()
+        
         
       }
       else{
