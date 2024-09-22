@@ -44,7 +44,7 @@ const ProductInfo = () => {
     
         <div className='flex flex-col w-full   pt-2   gap-4 '>
           {/* product info section left */}
-          <div className='flex gap-12 sm:gap-2 flex-col   sm:flex-row '>
+          <div className='flex gap-12 sm:gap-2 flex-col sm:justify-between  sm:flex-row '>
               {/* image */}
           <div className=' flex-3 sm:w-[40vw] md:w-[30vw] lg:w-[26vw]  sm:justify-end  flex flex-col-reverse gap-3   '>
             
@@ -56,7 +56,7 @@ const ProductInfo = () => {
             ))
               }
           </div>
-          <div className='w-full  sm:w-[80%]'>
+          <div className='w-full  sm:w-[100%]'>
 
             <img src={image} className='w-full h-auto' alt="" />
             </div>
