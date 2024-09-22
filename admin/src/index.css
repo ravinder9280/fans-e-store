@@ -20,3 +20,11 @@ a.active{
   background-color: rgb(181, 237, 237);
   
 }
+ 
+  /* hide scrollbar for IE, Edge and Firefox */
+ 
+
+/* hide scrollbar for chrome, safari and opera */
+.container::-webkit-scrollbar {
+  display: none;
+}
