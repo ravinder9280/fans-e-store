@@ -16,8 +16,8 @@ const product = ({image,name,price,category,id,url}) => {
       }
       
     } catch (error) {
-      toast.error('Failed to remove product')
-      console.log(error);
+      toast.error(error.message)
+      
       
       
     }

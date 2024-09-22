@@ -5,7 +5,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import CartTotal from '../components/cartTotal';
 
 const Cart = () => {
-  const { cartItems, products, currency, updateCartCount,Navigate } = useContext(ShopContext);
+  const { cartItems, products, currency, updateCartCount,Navigate,addToCart ,loading,setLoading} = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   const addCartData = () => {
@@ -51,19 +51,28 @@ const Cart = () => {
               </div>
         
             </div>
-            <div className='flex items-center w-[70px] text-sm rounded-md  text-white justify-between p-2  bg-orange-500'>
-              {/* <input type='number'min={1} max={10} className='w-12 pl-1 border' onChange={(e)=>e.target.vale===''||e.target.value==='0'?null:updateCartCount(item._id,item.size,Number(e.target.value))}  value={item.quantity} />
-              <div onClick={()=>updateCartCount(item._id,item.size,0)} className='text-xl  cursor-pointer'>
+            {
+              !loading?
 
-              <RiDeleteBinLine />
-              </div> */}
+              <div className='flex items-center min-w-16 text-sm rounded-md  text-white justify-between p-2  bg-orange-500'>
+             
+              
+              
+
+                
               <p  onClick={()=>updateCartCount(item._id,item.size,item.quantity-1)} className='font-bold cursor-pointer ' >-</p>
               <p className='font-bold' >{item.quantity}</p>
 
-              <p onClick={()=>updateCartCount(item._id,item.size,item.quantity+1)} className='font-bold cursor-pointer' >+</p>
-              </div>
-           
+              <p onClick={()=>addToCart(item._id,item.size)} className='font-bold cursor-pointer' >+</p>
+              
+              
+              </div>:
+            <div className='py-1  rounded-md text-white px-5  bg-orange-500'>
 
+              <span className="loading loading-spinner loading-sm"></span>
+            </div>
+
+            }
             
           </div>
         );

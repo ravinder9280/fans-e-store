@@ -16,21 +16,28 @@ const ShopContextProvider=(props)=>{
     const [token,setToken]=useState("");
     const [cartItems,setCartItems]=useState({})
     const Navigate=useNavigate()
+    const [loading,setLoading]=useState(false)
     const url='https://fans-e-store.onrender.com'
     // const url='http://localhost:5000'
     
     const [products,setProducts]=useState([])
     
     const addToCart=async(itemId,size)=>{
-        
-        
-        if(!size){
-            toast.error("Please Select Product Size")
-            return
+        setLoading(true)
+        try {
+            
+            if(!size){
+                toast.error("Please Select Product Size")
+                return
+            }
+            let response=await axios.post(`${url}/api/cart/add`,{size,itemId},{headers:{token}})
+            console.log(response);
+            await getCartData()
+        } catch (error) {
+            toast.error(error.message)
         }
-        let response=await axios.post(`${url}/api/cart/add`,{size,itemId},{headers:{token}})
-        console.log(response);
-        await getCartData()
+        setLoading(false)
+        
         
         
         // toast.success("Product Added To Cart Successfully")
@@ -74,11 +81,19 @@ getCartData()
         return totalCount;
     }
     const updateCartCount=async(itemId,size,quantity)=>{
-        let response=await axios.post(`${url}/api/cart/update`,{itemId,size,quantity},{headers:{token:localStorage.getItem('token')} })
-        await getCartData()
-        console.log(response);
-        
-        
+        setLoading(true)
+        try {
+            let response=await axios.post(`${url}/api/cart/update`,{itemId,size,quantity},{headers:{token:localStorage.getItem('token')} })
+            await getCartData()
+            console.log(response);
+            
+            
+            
+        } catch (error) {
+            toast.error(error.message)
+            
+        }
+        setLoading(false)
 
     }
     useEffect(()=>{
@@ -144,7 +159,8 @@ getCartData()
 
     const value={
         products,currency,delivery_fee,setShowSearch,showSearch,search,setSearch,
-        cartItems,addToCart,getCartCount,updateCartCount,url,token,setToken,Navigate,getCartTotal
+        cartItems,addToCart,getCartCount,updateCartCount,url,token,setToken,Navigate,getCartTotal,
+        loading,setLoading
     }
     return(
         <ShopContext.Provider value={value} >
