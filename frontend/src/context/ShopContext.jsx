@@ -17,6 +17,8 @@ const ShopContextProvider=(props)=>{
     const [cartItems,setCartItems]=useState({})
     const Navigate=useNavigate()
     const url='https://fans-e-store.onrender.com'
+    // const url='http://localhost:5000'
+    
     const [products,setProducts]=useState([])
     
     const addToCart=async(itemId,size)=>{

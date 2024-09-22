@@ -25,7 +25,7 @@ const ProductInfo = () => {
           setSizes(item.sizes)
 
           setSimilarProducts(products.filter(product=>product.category==currProduct.category))
-          setSimilarProducts(products=>products.filter(product=>product.subCategory==currProduct.subCategory))
+          setSimilarProducts(products=>products.filter(product=>product.subcategory==currProduct.subcategory))
           
 
           return null;

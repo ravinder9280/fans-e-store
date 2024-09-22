@@ -26,7 +26,7 @@ const Collection = () => {
             productsCopy=productsCopy.filter(item=>category.includes(item.category))
         }
         if(subCategory.length>0){
-            productsCopy=productsCopy.filter(item=>subCategory.includes(item.subCategory))
+            productsCopy=productsCopy.filter(item=>subCategory.includes(item.subcategory))
         }
         
         SetFilterProducts(productsCopy)
@@ -59,6 +59,9 @@ const Collection = () => {
     
    //4:02=36
  useEffect(()=>{
+    console.log(category);
+    console.log(subCategory);
+    
     
 
         applyFilter()
@@ -145,7 +148,7 @@ const subCategoryClickHandler=(e)=>{
             </div>
             <div className='flex flex-row gap-2 text-gray-600 ' >
 
-            <input  onClick={subCategoryClickHandler} className='cursor-pointer' type="checkbox" name="" value="Bottomwear"  id="" />
+            <input  onClick={subCategoryClickHandler} className='cursor-pointer' type="checkbox" name="" value="Bottemwear"  id="" />
             <p >Bottom Wear</p>
             </div>
             <div className='flex flex-row gap-2 text-gray-600 ' >

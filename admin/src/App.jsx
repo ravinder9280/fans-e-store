@@ -10,6 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   const url="https://fans-e-store.onrender.com"
+  // const url="http://localhost:5000"
   return (
     <div className='flex flex-col h-'>
       <Navbar/>

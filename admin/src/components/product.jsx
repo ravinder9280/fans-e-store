@@ -29,7 +29,7 @@ const product = ({image,name,price,category,id}) => {
         <img className='w-20' src={image} alt="" />
         <div className='flex flex-col  gap-1' >
 
-            <p className=' font-light' >{name}</p>
+            <p className=' font-light text-xs' >{name}</p>
             <p className='text-gray-500 font-thin' >{category}</p>
             <p className='text-gray-800' >$ {price}</p>
         </div>
