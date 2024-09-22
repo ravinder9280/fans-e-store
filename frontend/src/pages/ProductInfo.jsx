@@ -42,14 +42,14 @@ const ProductInfo = () => {
 
   return (
     
-        <div className='flex flex-col w-full   pt-2   gap-4'>
+        <div className='flex flex-col w-full   pt-2   gap-4 '>
           {/* product info section left */}
-          <div className='flex gap-12 sm:gap-12 flex-col   sm:flex-row '>
+          <div className='flex gap-12 sm:gap-2 flex-col   sm:flex-row '>
               {/* image */}
-          <div className=' flex-3 w-full  flex flex-col-reverse gap-3 sm:flex-row  '>
+          <div className=' flex-3 sm:w-[40vw] md:w-[30vw] lg:w-[26vw]  sm:justify-end  flex flex-col-reverse gap-3   '>
             
 
-          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between  sm:justify-normal sm:w-[100%] w-full   '>
+          <div className="flex  overflow-x-auto sm:overflow-y-scroll justify-between  sm:justify-normal sm:w-[100%] w-full   '>
             ">
             { images.map((item,index)=>(
               <img src={item} onClick={()=>setImage(item) } key={index} className={`w-[24%] ${item==image?"  border-orange-400":""} border cursor-pointer sm:mb-3 flex-shrink-0 `} alt="" />
@@ -62,7 +62,7 @@ const ProductInfo = () => {
             </div>
             </div>
             {/* product info section right */}
-            <div className='flex flex-col  gap-3'>
+            <div className='flex flex-col sm:w-[40vw]  gap-3'>
               <p className='text-xl font-medium'>{currProduct.name}</p>
               <p className='text-2xl mt-2 text-orange-400 font-bold'>{currency} {currProduct.price}</p>
               <p className='text-gray-500' >{currProduct.description}</p>
