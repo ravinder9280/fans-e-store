@@ -49,8 +49,22 @@ const placeOrder=async(req,res)=>{
         
     }
  }
+ const getOrder=async(req,res)=>{
+    try{
+        const {userId}=req.body;
+        const order=await orderModal.find({userId})
+        if(!order){
+            return res.json({message:"Order Not Found",success:false})
+        }
+        res.json({success:true,order})
+    }catch(error){
+        res.json({message:error.message,success:false})
+        console.log(error);
+        
+    }
+ }
 
 
 
- export {placeOrder}
+ export {placeOrder,getOrder}
 
