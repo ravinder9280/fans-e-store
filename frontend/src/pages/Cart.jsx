@@ -83,7 +83,7 @@ const Cart = () => {
       </div>
       <div className='flex justify-end mt-4'>
 
-      <button onClick={()=>Navigate('/order')} className='bg-orange-400 rounded-md text-white py-2 px-4'>PROCEED TO CHECKOUT</button>
+      <button onClick={()=>Navigate('/order/place')} className='bg-orange-400 rounded-md text-white py-2 px-4'>PROCEED TO CHECKOUT</button>
       </div>
     </div>
   );

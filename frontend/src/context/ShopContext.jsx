@@ -17,6 +17,7 @@ const ShopContextProvider=(props)=>{
     const [cartItems,setCartItems]=useState({})
     const Navigate=useNavigate()
     const [loading,setLoading]=useState(false)
+    const[orders,setOrders]=useState([])
     const url='https://fans-e-store.onrender.com'
     // const url='http://localhost:5000'
     
@@ -134,6 +135,22 @@ getCartData()
         }
         return total;
     }
+    const getOrders=async()=>{
+        try {
+            let response=await axios.post(url+"/api/order/get",{},{headers:{token:localStorage.getItem('token')}})
+            setOrders(response.data.order)
+
+            
+            
+            
+        } catch (error) {
+            console.log(error);
+            toast.error(error.message)
+            
+            
+        }
+    }
+    
     const getProducts=async()=>{
         try {
             let response=await axios.get(url+"/api/product/list")
@@ -153,14 +170,16 @@ getCartData()
     }
     useEffect(()=>{
         getProducts()
-
+        getOrders()
+        
     },[])
+    console.log(orders);
    
 
     const value={
         products,currency,delivery_fee,setShowSearch,showSearch,search,setSearch,
         cartItems,addToCart,getCartCount,updateCartCount,url,token,setToken,Navigate,getCartTotal,
-        loading,setLoading
+        loading,setLoading,orders
     }
     return(
         <ShopContext.Provider value={value} >

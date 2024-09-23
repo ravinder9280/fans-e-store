@@ -89,7 +89,9 @@ const NavBar = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-32 p-2 shadow">
         <li><a><IoPersonOutline/>Profile</a></li>
-        <li><a> <BsBasket/>My Orders</a></li>
+       <Link to={'/order/myorders'}>
+        <li ><a> <BsBasket/>My Orders</a></li>
+       </Link>
         <li onClick={()=>{localStorage.removeItem('token')
            setToken('')
             Navigate('/login')

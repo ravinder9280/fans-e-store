@@ -12,6 +12,7 @@ import CartPanel from './components/cartPanel'
 import { useContext } from 'react'
 import { ShopContext } from './context/ShopContext'
 import PlaceOrder from './pages/PlaceOrder'
+import MyOrders from './pages/MyOrders'
   
 
 
@@ -30,7 +31,8 @@ const App = () => {
         <Route path='/product/:id' element={<ProductInfo/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/order' element={<PlaceOrder/>}/>
+        <Route path='/order/place' element={<PlaceOrder/>}/>
+        <Route path='/order/myorders' element={<MyOrders/>}/>
         
       </Routes>
       
