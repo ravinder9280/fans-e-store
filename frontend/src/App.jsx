@@ -13,6 +13,7 @@ import { useContext } from 'react'
 import { ShopContext } from './context/ShopContext'
 import PlaceOrder from './pages/PlaceOrder'
 import MyOrders from './pages/MyOrders'
+import About from './pages/About'
   
 
 
@@ -24,7 +25,10 @@ const App = () => {
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw]  lg:px-[9vw]'>
       <ToastContainer/>
-      <NavBar/>
+      {
+        !location.pathname.includes('cart')?
+      <NavBar/>:<></>
+      }
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/collection' element={<Collection/>}/>
@@ -33,6 +37,7 @@ const App = () => {
         <Route path='/login' element={<Login/>}/>
         <Route path='/order/place' element={<PlaceOrder/>}/>
         <Route path='/order/myorders' element={<MyOrders/>}/>
+        <Route path='/about' element={<About/>}/>
         
       </Routes>
       

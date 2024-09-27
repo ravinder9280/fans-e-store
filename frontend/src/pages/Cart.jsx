@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
-import { RiDeleteBinLine } from "react-icons/ri";
+import { Link } from 'react-router-dom';
+
 import CartTotal from '../components/cartTotal';
+import { RxCross1 } from "react-icons/rx";
+
 
 const Cart = () => {
   const { cartItems, products, currency, updateCartCount,Navigate,addToCart ,loading,setLoading} = useContext(ShopContext);
@@ -29,8 +32,12 @@ const Cart = () => {
 
   return (
     <div className='pt-4 border-t gap-2 flex flex-col  '>
-      <div className='text-2xl mb-3'>
+      <div className='text-2xl py-2 bg-white flex justify-between sticky top-0 mb-3'>
         <Title text1={'YOUR '} text2={'CART'} />
+        <Link to={'/'} >
+        <RxCross1 />
+
+        </Link>
       </div>
       {cartData.filter(item => item.quantity > 0).map((item, idx) => {
         const productData = products.find((product) => product._id === item._id);
@@ -83,7 +90,7 @@ const Cart = () => {
       </div>
       <div className='flex justify-end mt-4'>
 
-      <button onClick={()=>Navigate('/order/place')} className='bg-orange-400 rounded-md text-white py-2 px-4'>PROCEED TO CHECKOUT</button>
+      <button onClick={()=>Navigate('/order/place')} className='bg-green-500 rounded-md text-white py-2 px-4'>PROCEED TO CHECKOUT</button>
       </div>
     </div>
   );
