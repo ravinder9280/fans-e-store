@@ -14,6 +14,7 @@ import { ShopContext } from './context/ShopContext'
 import PlaceOrder from './pages/PlaceOrder'
 import MyOrders from './pages/MyOrders'
 import About from './pages/About'
+import Contact from './pages/Contact'
   
 
 
@@ -27,7 +28,7 @@ const App = () => {
       <ToastContainer/>
       {
         !location.pathname.includes('cart')?
-      <NavBar/>:<></>
+        <NavBar/>:<></>
       }
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -38,6 +39,7 @@ const App = () => {
         <Route path='/order/place' element={<PlaceOrder/>}/>
         <Route path='/order/myorders' element={<MyOrders/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route path='/contact' element={<Contact/>}/>
         
       </Routes>
       
