@@ -14,7 +14,7 @@ const PORT = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 app.get('/',(req,res)=>{
-  res.send("hello i am root");
+  res.send("hello i am root new");
 })
 
 app.use("/api/user", userRouter);
