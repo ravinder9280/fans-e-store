@@ -8,7 +8,7 @@ import SearchBar from '../components/SearchBar'
 
 const Collection = () => {
     const [rotate,SetRotate]=useState(false)
-    const {products,search,setSearch,showSearch}=useContext(ShopContext)
+    const {products,search,setSearch,showSearch,loading,setLoading}=useContext(ShopContext)
     
     const [filterProducts,SetFilterProducts]=useState([])
     const [category,setCategory]=useState([])
@@ -96,11 +96,11 @@ const clickHandler=(e)=>{
 }
 const subCategoryClickHandler=(e)=>{
     if(subCategory.includes(e.target.value)){
-        setSubCategory(items=>items.filter(item=>item!=e.target.value))
+        setSubCategory(items=>items.filter(item=>item!=e.target.value));
     }
     else{
 
-        setSubCategory(categ=>[...categ,e.target.value])
+        setSubCategory(categ=>[...categ,e.target.value]);
     }
     
 }
@@ -184,12 +184,21 @@ const subCategoryClickHandler=(e)=>{
     </div>
         
         </div>
-    <div className="grid grid-cols-2 mt-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-6" >
+        {loading?
+            <div className="grid grid-cols-2 mt-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-6" >
+                
+
+                </div>
+    :
+
+            <div className="grid grid-cols-2 mt-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-6" >
+                
         {filterProducts.map((item,idx)=>(
             <ProductItem key={idx} id={item._id } image={item.image} name={item.name} price={item.price}  />
-
+            
         ))}
     </div>
+    }
        
 
     </div>

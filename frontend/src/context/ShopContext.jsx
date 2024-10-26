@@ -153,6 +153,7 @@ getCartData()
     }
     
     const getProducts=async()=>{
+        setLoading(true)
         try {
             let response=await axios.get(url+"/api/product/list")
             if(response.data.success){
@@ -168,6 +169,7 @@ getCartData()
             
             
         }
+        setLoading(false)
     }
     useEffect(()=>{
         getProducts()
