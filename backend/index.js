@@ -23,7 +23,7 @@ app.use("/api/order", orderRouter);
 app.use("/api/product", productRouter);
 
 app.listen(PORT, () => {
-  console.log(`server is working on http://localhost:${PORT}/`);
+  console.log(`server is working on local machine http://localhost:${PORT}/`);
   connectDB();
   connectCloudinary()
 });
