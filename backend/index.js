@@ -9,7 +9,7 @@ import productRouter from "./routes/productRoute.js";
 import connectCloudinary from "./cloudinary.js";
 const app = express();
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
