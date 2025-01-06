@@ -20,7 +20,8 @@ const ShopContextProvider=(props)=>{
     const[orders,setOrders]=useState([])
     // const url='https://fansestorebackend.vercel.app'
     // const url='http://localhost:5000'
-    const url='https://fans-e-store.onrender.com'
+    //const url='https://fans-e-store.onrender.com'
+    const url= 'http://ec2-15-207-18-48.ap-south-1.compute.amazonaws.com:3000'
     
     const [products,setProducts]=useState([])
     
