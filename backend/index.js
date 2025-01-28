@@ -16,6 +16,13 @@ app.use(express.json());
 app.get('/',(req,res)=>{
   res.send("hello i am root new");
 })
+app.get('/github/api',(req,res)=>{
+
+  const data=axios.get('https://github.com/ravinder9280/Chatty/commit/0208f0ca66489a68723702a7ced4d07e001c461d.diff')
+
+  res.json({data})
+
+})
 
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
