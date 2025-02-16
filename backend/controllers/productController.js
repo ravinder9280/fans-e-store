@@ -72,6 +72,16 @@ const removeProduct=async (req,res)=>{
         
     }
 }
+const getCommit=async (req,res)=>{
+    try {
+        const data=axios.get('https://github.com/ravinder9280/Chatty/commit/0208f0ca66489a68723702a7ced4d07e001c461d.diff')
+
+        res.json({data:data.data})
+        
+    } catch (error) {
+        
+    }
+}
 
 
-export {addProduct,listProduct,removeProduct}
+export {addProduct,listProduct,removeProduct,getCommit}
