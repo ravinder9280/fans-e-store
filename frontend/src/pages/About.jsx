@@ -1,20 +1,23 @@
-
+import Title from "../components/Title"
 const About = () => {
   return (
     <div className='flex flex-col gap-4 mt-6 mb-12 px-2 md:px-0 py-4'>
-        <p className='text-2xl' >ABOUT US</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, ea. Molestias accusamus voluptates optio cumque aperiam doloribus est nihil quod, minima eligendi sequi minus mollitia ullam esse, illo, atque facere?
-        Distinctio tempora eveniet modi corporis dolorem labore numquam corrupti aperiam? Earum exercitationem, voluptate aperiam et sapiente atque animi? Et recusandae voluptas asperiores, aperiam atque harum aliquid dolorem culpa sequi ut!
-        
+        <Title text1={"ABOUT"} text2={"US"} />
+        <p className="text-gray-500" >
+        At Fansestore, we're more than just a store; we're a community for fans to connect and celebrate their passions. We understand the thrill of discovering a new fandom, the joy of collecting memorabilia, and the excitement of expressing your love for your favorite characters and franchises.
+
+Our mission is to be your ultimate destination for officially licensed merchandise, offering a curated selection of high-quality products that cater to every fan's unique interests. Whether you're a die-hard movie buff, a devoted gamer, a passionate music enthusiast, or an avid sports fan, you'll find something to ignite your fandom at Fansestore.
+
+We believe that fandom is about more than just owning merchandise; it's about connecting with like-minded individuals, celebrating shared passions, and expressing your individuality. That's why we strive to create a welcoming and inclusive shopping experience where every fan feels valued and appreciated.
 
         </p>
-        <p>
+        <p className="text-gray-500" >
 
-        assumenda provident quod iusto reiciendis inventore debitis maxime! Molestias, omnis nemo ea, ad, nostrum veniam cupiditate non quos consequatur quisquam voluptatum.
-        Dignissimos itaque culpa doloribus perspiciatis repellat! Expedita at laudantium sit quas harum velit vel, maxime ad quasi possimus nulla aliquam dolores molestiae id suscipit voluptate sint architecto. Ut, non reiciendis.
-        Quaerat, placeat veritatis maxime voluptates minima, laborum asperiores sapiente reprehenderit dolorem ipsum quidem iusto sed. Voluptatum, temporibus quam porro nihil, tempore, inventore reiciendis explicabo laborum et ea a est? Libero?
-        Quo, laudantium! Minima hic, nulla tempora maiores maxime, placeat unde doloremque ipsam laudantium, molestiae magni consequatur nam beatae voluptate quae! Modi, totam. Sequi, sapiente nisi deleniti quod non perspiciatis quae.
-        </p>
+     we're committed to providing an exceptional customer experience. We strive to make your shopping journey seamless and enjoyable, with easy navigation, secure checkout, and fast, reliable shipping. Our dedicated customer support team is always ready to assist you with any questions or concerns.
+
+We believe in building a strong and inclusive community of fans. Connect with other enthusiasts on our social media channels, share your passion for your favorite fandoms, and discover new ones. We're always looking for ways to engage with our customers and create exciting experiences that celebrate the power of fandom.   
+
+More than just a store, Fansestore is a celebration of fandom. We invite you to explore our collection, discover your next favorite item, and join the millions of fans who have already found their perfect piece at Fansestore.        </p>
 
     </div>
   )

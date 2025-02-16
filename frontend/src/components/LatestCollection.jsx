@@ -20,8 +20,7 @@ const LatestCollection = () => {
 
       <Title text1={"LATEST"} text2={"COLLECTIONS"} />
       <p className='w-3/4 m-auto  text-xs sm:text-sm md:text-base text-gray-600' >
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique quae, enim at quod voluptatum dolores assumenda consequuntur magni accusamus beatae alias sapiente, voluptas obcaecati fuga ex ipsum. Fugit, officia ipsa.
-      </p>
+      Discover the latest trends! Our new collection features vibrant colors, bold prints, and sustainable fabrics. Shop now and elevate your style      </p>
       </div>
       
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-6">

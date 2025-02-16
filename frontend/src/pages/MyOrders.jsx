@@ -14,10 +14,14 @@ const MyOrders = () => {
         <Title text1={"My"} text2={"Orders"}/>
         <Link className=" text-blue-500">Help</Link>
       </div>
+      { orders.length===0?<div className="flex items-center justify-center">
+
+        <p className="text-gray-500">You Don't Have Any Order Yet 🔍</p>
+      </div>:
         <div className="flex flex-col gap-2">
           {orders.map((item,idx)=>(
 
-            <div key={idx} className="flex  border p-2 justify-between  gap-2 sm:flex-row ">
+            <div key={idx} className="flex  border rounded-lg p-2 justify-between  gap-2 sm:flex-row ">
               <div className="flex gap-2 sm:gap-8 flex-col sm:flex-row ">
               <div>
 
@@ -57,6 +61,7 @@ const MyOrders = () => {
           ))}
 
         </div>
+}
     </div>
   )
 }

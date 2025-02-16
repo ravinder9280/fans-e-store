@@ -27,7 +27,7 @@ const Contact = () => {
                         <p className='font-medium md:text-2xl'>Chat To Sales</p>
                         <p className='text-sm md:text-base text-gray-600'>Speaks to our friendly team.</p>
                     </div>
-                    <p className="text-sm sm:text-base font-[450]">fansestore.netlify.app</p>
+                    <p className="text-sm sm:text-base text-gray-700 font-[450]">fansestore.netlify.app</p>
 
                 </div>
 
@@ -44,7 +44,7 @@ const Contact = () => {
                         <p className='font-medium md:text-2xl'>Chat To Support</p>
                         <p className='text-sm md:text-base text-gray-600'>We're here to help.</p>
                     </div>
-                    <p className="text-sm sm:text-base font-[450]">fansestore.netlify.app</p>
+                    <p className="text-sm sm:text-base text-gray-700 font-[450]">fansestore.netlify.app</p>
 
                 </div>
 
