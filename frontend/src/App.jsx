@@ -15,12 +15,13 @@ import PlaceOrder from './pages/PlaceOrder'
 import MyOrders from './pages/MyOrders'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Loading from './pages/Loading'
   
 
 
 const App = () => {
   const location=useLocation()
-  const {getCartTotal}=useContext(ShopContext)
+  const {getCartTotal,loading}=useContext(ShopContext)
   console.log(location.pathname);
   
   return (
@@ -31,7 +32,7 @@ const App = () => {
         <NavBar/>:<></>
       }
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={!loading?<Home/>:<Loading/>}/>
         <Route path='/collection' element={<Collection/>}/>
         <Route path='/product/:id' element={<ProductInfo/>}/>
         <Route path='/cart' element={<Cart/>}/>

@@ -8,7 +8,7 @@ import { RxCross1 } from "react-icons/rx";
 
 
 const Cart = () => {
-  const { cartItems, products, currency, updateCartCount,Navigate,addToCart ,loading,setLoading} = useContext(ShopContext);
+  const { cartItems, products, currency,loadingItemId,setLoadingItemId, updateCartCount,Navigate,addToCart ,loading,} = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   const addCartData = () => {
@@ -23,10 +23,12 @@ const Cart = () => {
       }
     }
     setCartData(productData);
+    
   };
 
   useEffect(() => {
     addCartData();
+    
   }, [cartItems]);
  
 
@@ -58,28 +60,38 @@ const Cart = () => {
               </div>
         
             </div>
-            {
-              !loading?
+            
+              
 
               <div className='flex items-center min-w-16 text-sm rounded-md  text-white justify-between p-2  bg-orange-500'>
              
               
               
+              {loading&&loadingItemId==item._id?
+              <div className=' ml-4  rounded-md text-white flex items-center justify-center  bg-orange-500'>
 
-                
-              <p  onClick={()=>updateCartCount(item._id,item.size,item.quantity-1)} className='font-bold cursor-pointer ' >-</p>
+              <span className="loading text-sm text-center loading-spinner loading-sm"></span>
+            </div>:
+                <>
+
+              <p  onClick={()=>{updateCartCount(item._id,item.size,item.quantity-1)
+                setLoadingItemId(item._id)
+              }} className='font-bold cursor-pointer ' >-</p>
               <p className='font-bold' >{item.quantity}</p>
 
-              <p onClick={()=>addToCart(item._id,item.size)} className='font-bold cursor-pointer' >+</p>
+              <p onClick={()=>{addToCart(item._id,item.size)
+                setLoadingItemId(item._id)
+              }} className='font-bold cursor-pointer' >+</p>
+                </>
+                 
               
+              }
               
-              </div>:
-            <div className='py-1  rounded-md text-white px-5  bg-orange-500'>
+              </div>
+                
+           
 
-              <span className="loading loading-spinner loading-sm"></span>
-            </div>
-
-            }
+            
             
           </div>
         );

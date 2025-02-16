@@ -24,6 +24,8 @@ const ShopContextProvider=(props)=>{
     // const url= 'http://ec2-15-207-18-48.ap-south-1.compute.amazonaws.com:3000'
     
     const [products,setProducts]=useState([])
+  const [loadingItemId, setLoadingItemId] = useState(false)
+
     
     const addToCart=async(itemId,size)=>{
         setLoading(true)
@@ -40,6 +42,7 @@ const ShopContextProvider=(props)=>{
             toast.error(error.message)
         }
         setLoading(false)
+        setLoadingItemId(false)
         
         
         
@@ -97,6 +100,7 @@ getCartData()
             
         }
         setLoading(false)
+        setLoadingItemId(false)
 
     }
     useEffect(()=>{
@@ -183,7 +187,7 @@ getCartData()
     const value={
         products,currency,delivery_fee,setShowSearch,showSearch,search,setSearch,
         cartItems,addToCart,getCartCount,updateCartCount,url,token,setToken,Navigate,getCartTotal,
-        loading,setLoading,orders
+        loading,setLoading,orders,loadingItemId,setLoadingItemId
     }
     return(
         <ShopContext.Provider value={value} >
