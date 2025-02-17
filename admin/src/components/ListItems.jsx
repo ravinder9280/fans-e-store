@@ -24,7 +24,7 @@ const ListItems = ({url}) => {
 
   },[])
   return (
-    <div className='py-8 flex flex-col w-full px-4 gap-4'>
+    <div className='py-8 flex flex-col w̥-full px-4 gap-4'>
       <p className='text-gray-900' >All Product List</p>
       <div className="flex flex-col  gap-2">
         {

@@ -16,7 +16,7 @@ const MyOrders = () => {
       </div>
       { orders.length===0?<div className="flex items-center h-[50vh] justify-center">
 
-        <p className="text-gray-400 text-2xl md:text-4xl">You Don't Have Any Order Yet 🔍</p>
+        <p className="text-gray-400 text-xl md:text-4xl">You Don't Have Any Order Yet 🔍</p>
       </div>:
         <div className="flex flex-col gap-2">
           {orders.map((item,idx)=>(

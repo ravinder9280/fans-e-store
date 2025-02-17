@@ -22,7 +22,7 @@ import Loading from './pages/Loading'
 const App = () => {
   const location=useLocation()
   const {getCartTotal,loading}=useContext(ShopContext)
-  console.log(location.pathname);
+  
   
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw]  lg:px-[9vw]'>

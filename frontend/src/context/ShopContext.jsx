@@ -61,7 +61,7 @@ const ShopContextProvider=(props)=>{
     // }
     const getCartData=async ()=>{
         let response=await axios.post(`${url}/api/cart/get`,{},{headers:{token:localStorage.getItem('token')} })
-        console.log(response);
+        
         setCartItems(response.data.cartData)
     }
     useEffect(()=>{
@@ -165,7 +165,7 @@ getCartData()
 
                 setProducts(response.data.allProducts)
             }
-            console.log(response);
+            
             
             
         } catch (error) {
@@ -181,7 +181,7 @@ getCartData()
         getOrders()
         
     },[])
-    console.log(orders);
+    
    
 
     const value={

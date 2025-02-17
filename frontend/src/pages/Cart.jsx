@@ -1,16 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
-import { Link } from 'react-router-dom';
 
 import CartTotal from '../components/cartTotal';
 import { RxCross1 } from "react-icons/rx";
 
 
 const Cart = () => {
-  const { cartItems, products, currency,loadingItemId,setLoadingItemId, updateCartCount,Navigate,addToCart ,loading,} = useContext(ShopContext);
+  const { cartItems, products, currency,loadingItemId,setLoadingItemId, updateCartCount,Navigate,addToCart ,loading} = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
-
   const addCartData = () => {
     const productData = [];
     for (const items in cartItems) {
@@ -36,10 +34,14 @@ const Cart = () => {
     <div className='pt-4 border-t gap-2 flex flex-col  '>
       <div className='text-2xl py-2 bg-white flex justify-between sticky top-0 mb-3'>
         <Title text1={'YOUR '} text2={'CART'} />
-        <Link to={'/'} >
-        <RxCross1 />
+        
+        <RxCross1 className='p-1 rounded-full text-3xl hover:bg-gray-100 cursor-pointer' onClick={()=>
+        window.history.back()
 
-        </Link>
+        } />
+        
+
+        
       </div>
       {cartData.filter(item => item.quantity > 0).map((item, idx) => {
         const productData = products.find((product) => product._id === item._id);
@@ -102,7 +104,7 @@ const Cart = () => {
       </div>
       <div className='flex justify-end mt-4'>
 
-      <button onClick={()=>Navigate('/order/place')} className='bg-green-500 rounded-md text-white py-2 px-4'>PROCEED TO CHECKOUT</button>
+      <button onClick={()=>Navigate('/order/place')} className='bg-green-500 hover:bg-green-600 rounded-md text-white py-2 px-4'>PROCEED TO CHECKOUT</button>
       </div>
     </div>
   );

@@ -3,11 +3,13 @@ import { ShopContext } from '../context/ShopContext'
 import { useParams } from 'react-router-dom'
 import ProductItem from '../components/ProductItem' 
 import Title from '../components/Title'
+import { toast } from 'react-toastify';
+
 
 
 const ProductInfo = () => {
 
-    const {products,currency,token,addToCart,Navigate}=useContext(ShopContext)
+    const {products,currency,token,addToCart,Navigate,loading}=useContext(ShopContext)
     const [currProduct,setCurrProduct]=useState(false)
     const {id}=useParams();
     const [images,setImages]=useState([])
@@ -74,10 +76,21 @@ const ProductInfo = () => {
                   ))}
 
                 </div>
-                <button onClick={()=>token?addToCart(currProduct._id,size):Navigate('/login')
+                <div className='flex items-center md:justify-start justify-center'>
+
+                <button  onClick={()=> { if(!size){
+                  toast.error("please Select Product Size")
+                  return;
+                }
+                token?addToCart(currProduct._id,size):Navigate('/login')}
                 
-                  
-                } className='bg-orange-500 rounded text-white mt-4 bordered w-32 p-3' >ADD TO CART</button>
+                
+              } className='bg-green-500 w-full md:w-[50%]   rounded text-white mt-4 bordered  p-3 py-2' >{loading?
+<span className="loading  text-center loading-spinner loading-sm"></span>:"ADD TO CART"
+
+              }
+              </button>
+              </div>
 
               </div  >
               <div className='flex flex-col gap-1' >
@@ -88,14 +101,14 @@ const ProductInfo = () => {
               </div>
 
             </div>
-
+̥
             
 
           </div>
           {/* similar products */}
           <div className='flex flex-col mt-5 items-center sm:items-start gap-5' >
             <Title text1={"SIMILAR"} text2={"PRODUCTS"}/>
-
+̥
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-6">
 
                   {similarProducts.map((item,idx)=>(
