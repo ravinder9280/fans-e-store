@@ -18,7 +18,7 @@ const ProductItem = ({id,image,name,price}) => {
           <img src={image[0]} className='hover:scale-125 object-cover h-[40vh]    transition ease-in-out' alt="" />
         
       </div>
-      <p className='pt-3 pb-1 text-sm overflow-hidden text-ellipsis whitespace-nowrap max-w-screen-xs'>{name}</p>
+      <p className='pt-3 pb-1 text-sm overflow-hidden text-ellipsis whitespace-nowrap w-[40vw] sm:w-full max-w-screen-xs'>{name}</p>
       <p className='text-sm text-orange-400 font-medium'>{currency} {price}</p>
    
     
